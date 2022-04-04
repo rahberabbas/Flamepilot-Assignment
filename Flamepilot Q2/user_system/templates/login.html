@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+
+
+    {% if error %}
+    <br><br>
+    
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>{{ error }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <br/>
+    <br/>
+    {% endif %}
+
+<h1 class="text-center">Login</h1>
+
+
+<form method = "POST" action="{% url 'login' %}">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Username</label>
+      <input type="text" name="username" class="form-control" id="username" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+    </div>
+    
+    <button type="submit" class="btn btn-primary text-center">Submit</button>
+  </form>
+  <p class="text-center text-muted mt-5 mb-0">Don't have an account? <a href="{% url 'signup' %}" class="fw-bold text-body"><u>Register</u></a></p>
+</div>
+
+{% endblock %}

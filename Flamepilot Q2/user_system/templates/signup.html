@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+
+{% if error %}
+<br><br>
+
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>{{ error }}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<br/>
+<br/>
+{% endif %}
+
+<h1 class="text-center">Signup</h1>
+
+<form method = "POST" action="{% url 'signup' %}">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Username</label>
+      <input type="text" name="username" class="form-control" id="username" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" name="password1" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Confirm Password</label>
+        <input type="password" name="password2" class="form-control" id="">
+      </div>
+    <button type="submit" class="btn btn-primary text-center">Submit</button>
+  </form>
+
+  <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="{% url 'login' %}" class="fw-bold text-body"><u>Login</u></a></p>
+
+</div>
+
+</div>
+{% endblock %}

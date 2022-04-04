@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-4">
+    <h1 class="text-center">Profile</h1>
+    <table class="table mt-3">
+        {% for po in profile %}
+        <tbody>
+            <tr>
+                <td>Name</td>
+                <td>{{po.name}}</td>
+              </tr>
+          <tr>
+            <td>Email</td>
+            <td>{{po.email}}</td>
+          </tr>
+          <tr>
+            <td>Date Of Birth</td>
+            <td>{{po.date_of_birth}}</td>
+          </tr>
+          <tr>
+            <td>Phone Number</td>
+            <td>{{po.phone_number}}</td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+</div>
+{% endblock %}
